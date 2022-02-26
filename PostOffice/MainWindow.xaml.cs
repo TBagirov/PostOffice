@@ -22,6 +22,7 @@ namespace PostOffice
     {
         public MainWindow() {
             InitializeComponent();
+            // ПрОвЕрКа
         }
     }
 }
