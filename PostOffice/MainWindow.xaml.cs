@@ -21,6 +21,7 @@ namespace PostOffice
     public partial class MainWindow : Window
     {
         public MainWindow() {
+            // Проверка комиита на улаленный репозиторий
             InitializeComponent(); 
         }
     }
