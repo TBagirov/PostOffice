@@ -5,8 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PostOffice"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Главное окно" 
+        FontFamily="Verdana"
+        Height="450" 
+        Width="800"
+        WindowStartupLocation="CenterScreen" > 
     <Grid>
-        
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="2" BorderBrush ="Goldenrod" BorderThickness="3" Margin="40 20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                
+                <Border Grid.Row="0" Margin="10" BorderBrush="Gold" BorderThickness="3" >
+                    <TextBlock Grid.Row="0" Padding="10" FontSize="15" FontStyle="Italic" VerticalAlignment="Center">
+                        Команда, которая использовалась для создания ветви branch1: git branch branch1 
+                    </TextBlock>
+                </Border>
+
+                <Border Grid.Row="1" Margin="10" BorderBrush="Gold" BorderThickness="3" >
+                    <TextBlock Grid.Row="1" Padding="10" FontSize="15" FontStyle="Italic" VerticalAlignment="Center">
+                          Команда для переключения между ветвями: git checkout ИмяВетви(master/branch1)
+                    </TextBlock>
+                </Border>
+            </Grid>
+        </Border>
+            
     </Grid>
 </Window>
