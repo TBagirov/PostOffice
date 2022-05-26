@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6d27ceecb9e84c1092a9c2b6fefc73b1" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="PostOfficeModel.District" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostOfficeModel.Person" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostOfficeModel.Postman" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostOfficeModel.Publication" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostOfficeModel.PublicationType" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostOfficeModel.Region" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostOfficeModel.Street" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostOfficeModel.Subscriber" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostOfficeModel.Subscribe" Width="1.5" PointX="9.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostOfficeModel.DistrictsView" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostOfficeModel.PublicationsView" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostOfficeModel.SubscribersView" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostOfficeModel.SubscribesView" Width="1.5" PointX="6.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="PostOfficeModel.FK_Disctricts_Postmans" ManuallyRouted="false" />
+        <AssociationConnector Association="PostOfficeModel.FK_Disctricts_Regions" ManuallyRouted="false" />
+        <AssociationConnector Association="PostOfficeModel.FK_Subscribers_Districts" ManuallyRouted="false" />
+        <AssociationConnector Association="PostOfficeModel.FK_Postmans_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="PostOfficeModel.FK_Subscribers_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="PostOfficeModel.FK_Publications_PublicationTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="PostOfficeModel.FK_Subscribes_Publications" ManuallyRouted="false" />
+        <AssociationConnector Association="PostOfficeModel.FK_Regions_Streets" ManuallyRouted="false" />
+        <AssociationConnector Association="PostOfficeModel.FK_Subscribes_Subscribers" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

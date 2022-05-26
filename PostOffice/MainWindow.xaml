@@ -4,43 +4,252 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PostOffice"
+        xmlns:models="clr-namespace:PostOffice.Models"
         mc:Ignorable="d"
-        Title="Главное окно" 
+        Title="Главная" 
+        Height="550"
+        Width="990"
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        ShowInTaskbar="False"   
+        Icon="Images/post_office.png"
         FontFamily="Verdana"
-        Height="450" 
-        Width="800"
-        WindowStartupLocation="CenterScreen" > 
+        Background="DarkBlue">
+        
+    <!--#region Команды -->
+    <Window.CommandBindings>
+
+        <!-- Выход -->
+        <CommandBinding Command="models:WindowCommands.Exit"                                
+                        Executed="Exit_Executed"/>
+       
+        <!-- Открыть окно добавление почтальона -->
+        <CommandBinding Command="models:WindowCommands.OpenPostmanWindow"                                
+                        Executed="OpenPostmanWindow_Executed"/>
+
+        <!-- демонстрация таблицы График уборки -->
+        <CommandBinding Command="models:WindowCommands.ShowTableStreets"                          
+                        Executed="ShowTableStreets_Executed"/>
+
+        <!-- демонстрация таблицы График уборки -->
+        <CommandBinding Command="models:WindowCommands.ShowTableRegions"           
+                        Executed="ShowTableRegions_Executed"/>
+
+        <!-- демонстрация таблицы Дни недели -->
+        <CommandBinding Command="models:WindowCommands.ShowTableDistricts"                 
+                        Executed="ShowTableDistricts_Executed"/>
+
+        <!-- демонстрация таблицы История фактов уборки -->
+        <CommandBinding Command="models:WindowCommands.ShowTablePostmans"            
+                        Executed="ShowTablePostmans_Executed"/>
+
+        <!-- демонстрация таблицы История поселений в гостиницу -->
+        <CommandBinding Command="models:WindowCommands.ShowTablePersons"   
+                        Executed="ShowTablePersons_Executed"/>
+
+        <!-- демонстрация таблицы Города -->
+        <CommandBinding Command="models:WindowCommands.ShowTablePublicationTypes"                     
+                        Executed="ShowTablePublicationTypes_Executed"/>
+
+        <!-- демонстрация таблицы Номера гостиницы -->
+        <CommandBinding Command="models:WindowCommands.ShowTablePublications"                 
+                        Executed="ShowTablePublications_Executed"/>
+
+        <!-- демонстрация таблицы Типы номеров -->
+        <CommandBinding Command="models:WindowCommands.ShowTableSubscribers"             
+                        Executed="ShowTableSubscribers_Executed"/>
+
+        <!-- демонстрация таблицы Этажи -->
+        <CommandBinding Command="models:WindowCommands.ShowTableSubscribes"                     
+                        Executed="ShowTableSubscribes_Executed"/>             
+
+    </Window.CommandBindings>
+    <!--#endregion Команды -->
+ 
+
     <Grid>
-
         <Grid.RowDefinitions>
+            <!-- Меню -->
             <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="20"/>
 
+            <!-- Панель инструментов -->
+            <RowDefinition Height="35"/>
+
+            <!-- Рабочая область -->
+            <RowDefinition Height="*"/>
+
+            <!-- Строка состояния -->
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="2" BorderBrush ="Goldenrod" BorderThickness="3" Margin="40 20">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
 
-                
-                <Border Grid.Row="0" Margin="10" BorderBrush="Gold" BorderThickness="3" >
-                    <TextBlock Grid.Row="0" Padding="10" FontSize="15" FontStyle="Italic" VerticalAlignment="Center">
-                        Команда, которая использовалась для создания ветви branch1: git branch branch1 
-                    </TextBlock>
-                </Border>
+        <!-- Меню приложения - в верхней части окна -->
+        <Menu Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalContentAlignment="Center"
+              FontFamily="Verdana" FontSize="14">
 
-                <Border Grid.Row="1" Margin="10" BorderBrush="Gold" BorderThickness="3" >
-                    <TextBlock Grid.Row="1" Padding="10" FontSize="15" FontStyle="Italic" VerticalAlignment="Center">
-                          Команда для переключения между ветвями: git checkout ИмяВетви(master/branch1)
-                    </TextBlock>
-                </Border>
-            </Grid>
-        </Border>
+            <Menu.Background>
+                <LinearGradientBrush>
+                    <GradientStop Offset="0" Color="AliceBlue"/>
+                    <GradientStop Offset="0.5" Color="LightSkyBlue"/>
+                    <GradientStop Offset="1" Color="DarkBlue"/>
+                </LinearGradientBrush>
+            </Menu.Background>
             
+            <!--Файл-->
+            <MenuItem Header="Файл" Height="32"> 
+
+                <!--Выход-->
+                <MenuItem Header="Выход" Command="models:WindowCommands.Exit" Height="32" >
+                    <MenuItem.Icon>
+                        <Image Source="Images/door_out.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>  
+
+            <!-- Таблицы -->
+            <MenuItem Header="Таблицы"> 
+
+                <!-- Персоны -->
+                <MenuItem Command="models:WindowCommands.ShowTablePersons" Height="32" Foreground="Black"/>
+
+                <!-- Почтальоны -->
+                <MenuItem Command="models:WindowCommands.ShowTablePostmans" Height="32" Foreground="Black"/>
+
+                <!-- Улицы -->
+                <MenuItem Command="models:WindowCommands.ShowTableStreets" Height="32" Foreground="Black"/>
+
+                <!-- Регионы -->
+                <MenuItem Command="models:WindowCommands.ShowTableRegions" Height="32" Foreground="Black"/>
+
+                <!-- Отношения почтальонов к участкам -->
+                <MenuItem Command="models:WindowCommands.ShowTableDistricts" Height="32" Foreground="Black"/>
+
+                <!-- Тип издания -->
+                <MenuItem Command="models:WindowCommands.ShowTablePublicationTypes" Height="32" Foreground="Black"/>
+
+                <!-- Издания -->
+                <MenuItem Command="models:WindowCommands.ShowTablePublications" Height="32" Foreground="Black"/>
+
+                <!-- Подписчики -->
+                <MenuItem Command="models:WindowCommands.ShowTableSubscribers" Height="32" Foreground="Black"/>
+
+                <!-- Подписки -->
+                <MenuItem Command="models:WindowCommands.ShowTableSubscribes" Height="32" Foreground="Black"/> 
+            </MenuItem>
+
+            <!--Окна-->
+            <MenuItem Header="Окна" Height="32">
+
+                <!-- Окно добавление почтальона-->
+                <MenuItem Header="Добавление почтальона" Command="models:WindowCommands.OpenPostmanWindow" Height="32" >
+                    
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <!-- Контейнер для панели инструментов-->
+        <ToolBarTray MinHeight="32" Grid.Row="1" Orientation="Horizontal">
+            <ToolBarTray.Background> 
+                <LinearGradientBrush>
+                    <GradientStop Offset="0" Color="AliceBlue"/>
+                    <GradientStop Offset="0.5" Color="LightSkyBlue"/>
+                    <GradientStop Offset="1" Color="DarkBlue"/>
+                </LinearGradientBrush>
+            </ToolBarTray.Background> 
+            
+            <!--Панель инструментов-->
+            <ToolBar Width="1550">
+                <ToolBar.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Offset="0" Color="AliceBlue"/>
+                        <GradientStop Offset="0.5" Color="LightSkyBlue"/>
+                        <GradientStop Offset="1" Color="DarkBlue"/>
+                    </LinearGradientBrush>
+                </ToolBar.Background>
+               
+            </ToolBar>
+        </ToolBarTray>
+
+        <!--#region Контент окна -->
+        <GroupBox Name="GbxTable"
+                  Foreground="WhiteSmoke"
+                  Header="Данные таблиц"
+                  Grid.Row="2"
+                  Margin="10"
+                  Padding="10"
+                  >
+
+            <!-- #region Таблица для вывода данных -->
+            <DataGrid Name="DgdTableData"
+                      ColumnWidth="*"
+                      FontSize="14"
+                      IsReadOnly="True">
+
+                <!-- Фон DataGrid -->
+                <DataGrid.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Offset="0" Color="DarkBlue"/> 
+                        <GradientStop Offset="0.5" Color="Blue"/> 
+                        <GradientStop Offset="1" Color="LightSkyBlue"/>
+                    </LinearGradientBrush>
+                </DataGrid.Background>
+
+
+                <!-- Фон RowBackground -->
+                <DataGrid.RowBackground>
+                    <LinearGradientBrush>
+                        <GradientStop Offset="0" Color="LightCyan"/>
+                        <GradientStop Offset="0.5" Color="LightBlue"/>
+                        <GradientStop Offset="1" Color="LightCyan"/>
+                    </LinearGradientBrush>
+                </DataGrid.RowBackground>
+
+
+                <!-- Фон AlternatingRowBackground -->
+                <DataGrid.AlternatingRowBackground>
+                    <LinearGradientBrush>
+                        <GradientStop Offset="0" Color="LightBlue"/>
+                        <GradientStop Offset="0.5" Color="LightCyan"/>
+                        <GradientStop Offset="1" Color="LightBlue"/>
+                    </LinearGradientBrush>
+                </DataGrid.AlternatingRowBackground>
+
+
+                <!--#region Контекстное меню -->
+                <DataGrid.ContextMenu>
+                    <ContextMenu> 
+
+                        <!-- Выход -->
+                        <MenuItem Header="Выход" Height="32" Foreground="Black" Command="models:WindowCommands.Exit"/>
+
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+                <!--#endregion-->
+
+            </DataGrid>
+            <!--#endregion Таблица для вывода данных -->
+
+        </GroupBox>
+        <!--#endregion Контент окна-->
+
+
+        <!-- Статус-бар -->
+        <StatusBar Grid.Row="3" Foreground="Azure" Padding="0">
+            <StatusBar.Background>
+                <LinearGradientBrush>
+                    <GradientStop Offset="0" Color="DarkBlue"/>
+                    <GradientStop Offset="0.5" Color="LightSkyBlue"/>
+                    <GradientStop Offset="1" Color="AliceBlue"/>
+                </LinearGradientBrush>
+            </StatusBar.Background>
+
+            <!-- Количество выбранных элементов -->
+            <Label Name="LblCount" 
+                   Content="Количество элементов: ——"
+                   Foreground="WhiteSmoke"/>
+        </StatusBar>
+
+
     </Grid>
 </Window>

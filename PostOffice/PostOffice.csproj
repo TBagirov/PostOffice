@@ -14,6 +14,21 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,8 +50,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +80,80 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\PostOfficeController.cs" />
+    <Compile Include="Models\AddressPostman_Result.cs">
+      <DependentUpon>PostOffice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\District.cs">
+      <DependentUpon>PostOffice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DistrictsView.cs">
+      <DependentUpon>PostOffice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EachPubAmount_Result.cs">
+      <DependentUpon>PostOffice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Person.cs">
+      <DependentUpon>PostOffice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Postman.cs">
+      <DependentUpon>PostOffice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PostOffice.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PostOffice.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PostOffice.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PostOffice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PostOffice.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PostOffice.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Publication.cs">
+      <DependentUpon>PostOffice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PublicationsView.cs">
+      <DependentUpon>PostOffice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PublicationType.cs">
+      <DependentUpon>PostOffice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Region.cs">
+      <DependentUpon>PostOffice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Street.cs">
+      <DependentUpon>PostOffice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Subscribe.cs">
+      <DependentUpon>PostOffice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Subscriber.cs">
+      <DependentUpon>PostOffice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SubscribersNewspapers_Result.cs">
+      <DependentUpon>PostOffice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SubscribersView.cs">
+      <DependentUpon>PostOffice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SubscribesAverageTerms_Result.cs">
+      <DependentUpon>PostOffice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SubscribesView.cs">
+      <DependentUpon>PostOffice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TopPubsDistrict_Result.cs">
+      <DependentUpon>PostOffice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WindowCommands.cs" />
+    <Compile Include="Views\PostmanWindow.xaml.cs">
+      <DependentUpon>PostmanWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +166,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\PostmanWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -86,6 +189,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Models\PostOffice.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PostOffice.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\PostOffice.edmx.diagram">
+      <DependentUpon>PostOffice.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,6 +204,57 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\door_out.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="App_Data\PostOffice.mdf" />
+    <Content Include="App_Data\PostOffice_log.ldf">
+      <DependentUpon>PostOffice.mdf</DependentUpon>
+    </Content>
+    <Resource Include="Images\post_office.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="Models\PostOffice.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PostOffice.edmx</DependentUpon>
+      <LastGenOutput>PostOffice.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\PostOffice.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PostOffice.edmx</DependentUpon>
+      <LastGenOutput>PostOffice.cs</LastGenOutput>
+    </Content>
+    <Content Include="PostOffice.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PostOffice_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>PostOffice.mdf</DependentUpon>
+    </Content>
+    <Content Include="Scripts\CreateFullBackup.sql" />
+    <Content Include="Scripts\CreateTables.sql" />
+    <Content Include="Scripts\CreateView.sql" />
+    <Content Include="Scripts\FillTables.sql" />
+    <Content Include="Scripts\Queries.sql" />
+    <Content Include="Scripts\QueriesCursor.sql" />
+    <Content Include="Scripts\RunProc.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
